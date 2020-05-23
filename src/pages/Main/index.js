@@ -14,7 +14,7 @@ import "./style.css";
 export default function Index() {
   const [email, setEmail] = useState("felipe@gmail.com");
   const [password, setPassword] = useState("123");
-  const [loadingVisible, setLoadingVisible] = useState(false);
+  const [loadingVisible, setLoadingVisible] = useState(true);
   const [showModalRegisterUser, setShowModalRegisterUser] = useState(false);
 
   const MySwal = withReactContent(Swal);
