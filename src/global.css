@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  padding-top: 25px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #15202b;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.icon {
+  filter: invert(1);
+}
+
+.title {
+  font-size: 23px;
+  padding-top: 5px;
+  color: #fff;
+}
+
+.modal-title {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #15202b;
+}
+
+.group-fields {
+  display: flex;
+  flex-direction: column;
+  background-color: #192734;
+  padding-left: 5px;
+  border-bottom: 2.3px solid #8899a6;
+  margin-bottom: 20px;
+}
+
+.field-title {
+  color: #88998d;
+  margin-top: 4px;
+}
+
+.group-fields input {
+  height: 100%;
+  color: #fff;
+  text-align: inherit;
+  background-color: transparent;
+  border: none;
+  outline-style: none;
+  font-size: inherit;
+  resize: none;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  margin-bottom: 1px;
+}
+
+.form {
+  width: 100%;
+}
+
+.form .button {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  width: 100%;
+  min-height: 49px;
+  background-color: rgb(29, 161, 242);
+  line-height: 1;
+  border: none;
+  /* border-bottom-left-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px; */
+  transition: background-color 0.3s;
+}
+
+.form .button:hover {
+  background-color: #1a91da;
+}
+
+.body-modal-dark .modal-content {
+  justify-content: center;
+  background-color: #15202b;
+  max-width: 583px;
+  margin: 0 auto;
+}
+
+.group-button-submit {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.group-button-submit .button {
+  width: 45%;
+}
+
+.group-button-submit .button-light {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+}
+
+.error {
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  filter: invert(100%);
+}

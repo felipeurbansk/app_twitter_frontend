@@ -1,0 +1,78 @@
+.main {
+    background-color: #15202B;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.main section {
+    width:70%;
+    border: 1px solid #253341;
+    overflow: overlay;
+}
+
+.header-section {
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid #38444D;
+}
+
+.section-middle .page-title{
+    color: #FFF;
+    font-weight: bold;
+    font-size: 17px;
+    padding-left: 15px;
+}
+
+.section-middle .tweet {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 0;
+}
+
+.section-middle .tweet .icon {
+    width: 30px;
+}
+
+.section-middle .content-tweet {
+    width: 90%;
+    margin-right: 3%;
+}
+
+.section-middle .content-tweet textarea {
+    width: 98%;
+    background-color: #15202B;
+    font-weight: 400;
+    color: #FFF;
+    padding: 10px;
+    border: none;
+    resize: none;
+}
+
+.content-tweet .actions {
+    width: 100%;
+    display: block;
+}
+
+.content-tweet .actions button {
+    width: 70px;
+    height: 30px;
+    float: right;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: rgb(29, 161, 242);
+    line-height: 1;
+    border: none;
+    border-bottom-left-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    transition: background-color .3s;
+}
+
+.timeline {
+    border-top: 9px solid #253341;
+}

@@ -1,0 +1,15 @@
+.content-loading {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-color: #15202b;
+  z-index: 1500;
+}
+
+.content-loading .invisible {
+  visibility: hidden !important;
+}
+
+.content-loading .visible {
+  visibility: visible !important;
+}
