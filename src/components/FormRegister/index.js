@@ -1,18 +1,19 @@
 import React, { useRef } from "react";
+import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
 import api from "../../service/api";
 
+import withReactContent from "sweetalert2-react-content";
+import { Modal, Button } from "react-bootstrap";
 import { Form } from "@unform/web";
+import Swal from "sweetalert2";
 import Input from "../../components/Fields/Input";
 import { ReactComponent as ReactLogo } from "../../assets/images/icon.svg";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-
-import { Modal, Button } from "react-bootstrap";
 
 export default function FormRegister(props) {
   const formRef = useRef(null);
   const MySwal = withReactContent(Swal);
+  const history = useHistory();
 
   async function handleSubmit(data) {
     try {
@@ -40,17 +41,25 @@ export default function FormRegister(props) {
       await api
         .post("/users", data)
         .then((success) => {
-          console.log({ success });
+          if (!success.data && !success.data.token) return false;
+
+          localStorage.setItem("TOKEN_KEY", success.data.token);
+          history.push("/profile");
         })
         .catch((err) => {
           console.log({ err });
-          if (err.request && err.request.status === 401) {
+          if (
+            (err.request && err.request.status === 400) ||
+            err.request.status === 401
+          ) {
             MySwal.fire({
-              onOpen: () => {
-                MySwal.clickConfirm();
-              },
-            }).then(() => {
-              return MySwal.fire(<p>{err.response.data[0].message}</p>);
+              title: "Ocorreu um erro...",
+              html: (
+                <p className="message-sweetalert">
+                  {err.response.data[0].message}
+                </p>
+              ),
+              icon: "error",
             });
           } else {
             if (err.request && err.request.status === 404) {
@@ -94,7 +103,7 @@ export default function FormRegister(props) {
           <Input type="text" title="Username" id="username" name="username" />
           <Input type="text" title="E-mail" id="email" name="email" />
           <Input type="password" title="Senha" id="password" name="password" />
-          <Modal.Footer class="group-button-submit">
+          <Modal.Footer className="group-button-submit">
             <Button
               variant="light"
               className="button-light"

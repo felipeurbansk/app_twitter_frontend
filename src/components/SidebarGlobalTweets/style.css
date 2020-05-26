@@ -1,0 +1,30 @@
+.content-globals {
+  padding: 0;
+  width: 94%;
+  height: 87vh;
+  overflow-y: auto;
+}
+
+.content-globals .content-tweet {
+  width: 85%;
+}
+
+.content-globals .image-user img {
+  width: 35px;
+}
+
+.content-globals .user-info {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.content-globals .user-info .last-info {
+  margin-left: 0;
+  font-size: 13px;
+}
+
+.content-globals .body-tweet {
+  font-size: 14px;
+}

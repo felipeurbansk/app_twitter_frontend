@@ -15,7 +15,7 @@ export default function Input({ name, title, ...rest }) {
 
   return (
     <div className="group-fields">
-      <label for={name} className="field-title">
+      <label htmlFor={name} className="field-title">
         {title}
       </label>
       <input
@@ -25,7 +25,7 @@ export default function Input({ name, title, ...rest }) {
         {...rest}
       />
       {error && (
-        <label for={name} className="text-danger error">
+        <label htmlFor={name} className="text-danger error">
           {error}
         </label>
       )}

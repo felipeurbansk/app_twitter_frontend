@@ -14,7 +14,7 @@ import "./style.css";
 export default function Index() {
   const [email, setEmail] = useState("felipe@gmail.com");
   const [password, setPassword] = useState("123");
-  const [loadingVisible, setLoadingVisible] = useState(true);
+  const [loadingVisible, setLoadingVisible] = useState(false);
   const [showModalRegisterUser, setShowModalRegisterUser] = useState(false);
 
   const MySwal = withReactContent(Swal);
@@ -45,11 +45,9 @@ export default function Index() {
           setLoadingVisible(false);
           if (err.request && err.request.status === 401) {
             MySwal.fire({
-              onOpen: () => {
-                MySwal.clickConfirm();
-              },
-            }).then(() => {
-              return MySwal.fire(<p>{err.response.data[0].message}</p>);
+              title: "Erro no login",
+              html: <p>{err.response.data[0].message}</p>,
+              icon: "error",
             });
           }
         });
@@ -57,7 +55,7 @@ export default function Index() {
   }
 
   return (
-    <div className="content">
+    <div className="content-login">
       <Loading visible={loadingVisible} />
       <ReactLogo className="icon" />
       <h1 className="title">Entrar no Twitter</h1>

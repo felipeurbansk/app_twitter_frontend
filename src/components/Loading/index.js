@@ -1,5 +1,5 @@
 import React from "react";
-import { BoxLoading, TransverseLoading } from "react-loadingg";
+import { TransverseLoading } from "react-loadingg";
 
 import "./style.css";
 

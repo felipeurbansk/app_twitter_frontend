@@ -1,40 +1,40 @@
 .display-linebreak {
-    white-space: pre-line;
+  white-space: pre-line;
 }
 
 .container-tweet {
-    border: 1px solid #253341;
-    padding: 10px;
-    display: flex;
-    color: #FFF;
-    justify-content: space-between;
+  border: 1px solid #253341;
+  padding: 10px;
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+  padding: 20px;
 }
 
-.container-tweet .icon{
-    width: 40px;
-    height: 40px;
+.container-tweet .image-user img {
+  width: 55px;
+  margin-top: 5px;
 }
 
 .container-tweet .content-tweet {
-    width: 30%;
+  width: 30%;
 }
-
 
 .user-info {
-    display: flex;
+  display: flex;
 }
 
-.container-tweet .user-info .name{
-    font-weight: bold;
+.container-tweet .user-info .name {
+  font-weight: bold;
 }
 
 .container-tweet .user-info .last-info {
-    color:#586774;
-    margin-left: 5px;
+  color: #586774;
+  margin-left: 5px;
 }
 
 .container-tweet .user-info .separator {
-    overflow-wrap: break-word;
-    line-height: 1.3125;
-    word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3125;
+  word-wrap: break-word;
 }

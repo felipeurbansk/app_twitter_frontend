@@ -1,3 +1,8 @@
+:root {
+  --background-dark: #15202b;
+  --border-dark: #253341;
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -9,8 +14,16 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  overflow: hidden;
   height: 100vh;
-  background-color: #15202b;
+  background-color: var(--background-dark);
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 code {
@@ -21,9 +34,27 @@ code {
 .content {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
 }
+
+.content .sidebar {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content .section-rigth {
+  width: 30%;
+}
+
+.content .middle {
+  width: 50%;
+  height: fit-content;
+  border: 1px solid var(--border-dark);
+}
+
 .icon {
   filter: invert(1);
 }
@@ -50,7 +81,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #15202b;
+  background-color: var(--background-dark);
 }
 
 .group-fields {
@@ -58,7 +89,7 @@ code {
   flex-direction: column;
   background-color: #192734;
   padding-left: 5px;
-  border-bottom: 2.3px solid #8899a6;
+  border-bottom: 2.3px solid var(--border-dark);
   margin-bottom: 20px;
 }
 
@@ -107,7 +138,7 @@ code {
 
 .body-modal-dark .modal-content {
   justify-content: center;
-  background-color: #15202b;
+  background-color: var(--background-dark);
   max-width: 583px;
   margin: 0 auto;
 }

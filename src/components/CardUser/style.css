@@ -1,0 +1,41 @@
+.card-user {
+  width: 90%;
+  margin: 19px 0;
+}
+
+.card-user .card {
+  background-color: var(--background-dark);
+  filter: invert(5%);
+  border: 1px solid var(--border-dark);
+}
+
+.card-user .card {
+  color: #fff;
+}
+
+.card-user .card .username {
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.card-user .card .photo {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-user .photo .card-img-top {
+  width: 60px;
+}
+
+.card-user .actions-user {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-user .actions-user .logout {
+  color: rgb(230, 43, 43);
+  margin-top: 5px;
+}

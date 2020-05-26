@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { ReactComponent as ReactLogo } from "../../assets/images/icon.svg";
 import Tweet from "../../components/Tweet";
-
+import CardUser from "../../components/CardUser";
+import SidebarGlobalTweets from "../../components/SidebarGlobalTweets";
+import PhotoDefault from "../../assets/images/profile.png";
 import api from "../../service/api";
 
 import "./style.css";
@@ -30,25 +32,32 @@ export default function Profile() {
       const response = await api.post("/tweets", { post });
 
       setTweets([response.data, ...tweets]);
+
+      setPost("");
     } catch (err) {
       console.log({ err });
     }
   }
 
   return (
-    <div className="main">
-      {/* <section className="section-left"> */}
-      {/* <ReactLogo className="icon"/> */}
-      {/* </section> */}
-      <section className="section-middle">
+    <div className="content">
+      <section className="section-left sidebar">
+        <ReactLogo className="icon" />
+        <CardUser user={user} />
+      </section>
+      <section className="section-middle middle">
         <div className="header-section">
           <span className="page-title">Página inicial</span>
         </div>
         <div className="tweet">
           <div className="image-profile">
-            <ReactLogo className="icon" />
+            {user.photo ? (
+              <img src={user.photo} alt="Foto do usuário" />
+            ) : (
+              <img src={PhotoDefault} alt="Foto do usuário" />
+            )}
           </div>
-          <div className="content-tweet">
+          <div className="create-tweet">
             <form>
               <textarea
                 onChange={(post) => {
@@ -67,13 +76,13 @@ export default function Profile() {
         </div>
         <div className="timeline">
           {tweets.map((tweet) => (
-            <Tweet key={tweet.id} Tweet={tweet} User={user} />
+            <Tweet key={tweet.id} tweet={tweet} user={user} />
           ))}
         </div>
       </section>
-      {/* <section className="section-rigth">
-
-            </section> */}
+      <section className="section-rigth sidebar">
+        <SidebarGlobalTweets />
+      </section>
     </div>
   );
 }
