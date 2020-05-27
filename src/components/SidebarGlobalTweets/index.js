@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../../service/api";
 import socket from "../../service/socket";
 
@@ -9,16 +10,14 @@ import "./style.css";
 let subscription;
 
 export default function SidebarGlobalTweets() {
-  const [tweetsGlobal, setTweetsGlobal] = useState([""]);
+  const [tweetsGlobal, setTweetsGlobal] = useState([]);
 
   useEffect(() => {
+    getNewGlobalTweets();
+
     socket.connect();
     subscription = socket.subscribe("room:newTweet", setTweets);
-
-    getNewGlobalTweets();
   }, []);
-
-  // useEffect(() => () => (subscription = subscription.close()), []);
 
   async function getNewGlobalTweets() {
     await api.get("/global").then((success) => {
@@ -27,12 +26,16 @@ export default function SidebarGlobalTweets() {
   }
 
   function setTweets(tweet) {
-    console.log({ tweet });
-    // setTweetsGlobal([tweet, ...tweetsGlobal]);
+    try {
+      setTweetsGlobal((tweets) => [tweet, ...tweets]);
+    } catch (err) {
+      console.log({ err });
+    }
   }
 
   return (
     <div className="content-globals">
+      <Link onClick={() => console.log({ tweetsGlobal })}>Vaidar tweets</Link>
       {tweetsGlobal.map((tweet) => (
         <Tweet key={tweet.id} tweet={tweet} user={tweet.user} />
       ))}

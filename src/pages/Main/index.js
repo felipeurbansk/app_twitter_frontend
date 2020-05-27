@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 
 import { ReactComponent as ReactLogo } from "../../assets/images/icon.svg";
