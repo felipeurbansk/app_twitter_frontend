@@ -17,8 +17,6 @@ function SidebarGlobalTweets() {
 
     socket.connect();
     subscription = socket.subscribe("room:newTweet", setTweets);
-
-    return () => subscription.close();
   }, []);
 
   async function getNewGlobalTweets() {
