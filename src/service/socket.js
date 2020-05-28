@@ -2,17 +2,20 @@ import Ws from "@adonisjs/websocket-client";
 
 export class SocketConnection {
   connect() {
-    this.ws = Ws("ws://localhost:3333").connect();
+    this.ws = Ws(process.env.REACT_APP_URL_SOCKETIO).connect();
 
     this.ws.on("open", (connect) => {
-      console.log("[Service WSK] Conectado ao socket.io: ws://localhost:3333", {
-        connect,
-      });
+      console.log(
+        `[Service WSK] Conectado ao socket.io: ${process.env.REACT_APP_URL_SOCKETIO}`,
+        {
+          connect,
+        }
+      );
     });
 
     this.ws.on("close", () => {
       console.log(
-        "[Service WSK] Desconetado do socket.io: ws://localhost:3333"
+        `[Service WSK] Desconetado do socket.io: ${process.env.REACT_APP_URL_SOCKETIO}`
       );
     });
 
