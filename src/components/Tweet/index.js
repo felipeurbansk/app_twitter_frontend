@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { memo } from "react";
 import PhotoDefault from "../../assets/images/profile.png";
 
 import Moment from "react-moment";
 
 import "./style.css";
 
-export default function Tweet({ tweet, user }) {
+function Tweet({ tweet, user }) {
   return (
     <div className="container-tweet">
       <div className="image-user">
@@ -31,10 +31,12 @@ export default function Tweet({ tweet, user }) {
           </div>
         </div>
         <div className="body-tweet">
-          <p className="display-linebreak">{tweet.post}</p>
+          <p className="tweet_post">{tweet.post}</p>
         </div>
         <div className="content-actions"></div>
       </div>
     </div>
   );
 }
+
+export default memo(Tweet);

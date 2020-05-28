@@ -1,8 +1,11 @@
 .content-globals {
+  overflow-y: auto;
+  height: 84.6vh;
+}
+
+.container-global {
   padding: 0;
   width: 94%;
-  height: 87vh;
-  overflow-y: auto;
 }
 
 .content-globals .content-tweet {

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
 import api from "../../service/api";
@@ -8,12 +8,15 @@ import { Modal, Button } from "react-bootstrap";
 import { Form } from "@unform/web";
 import Swal from "sweetalert2";
 import Input from "../../components/Fields/Input";
+import Loading from "../../components/Loading";
+
 import { ReactComponent as ReactLogo } from "../../assets/images/icon.svg";
 
 export default function FormRegister(props) {
-  const formRef = useRef(null);
   const MySwal = withReactContent(Swal);
+  const formRef = useRef(null);
   const history = useHistory();
+  const [loadingVisible, setLoadingVisible] = useState(false);
 
   async function handleSubmit(data) {
     try {
@@ -38,6 +41,8 @@ export default function FormRegister(props) {
         abortEarly: false,
       });
 
+      setLoadingVisible(true);
+
       await api
         .post("/users", data)
         .then((success) => {
@@ -47,7 +52,7 @@ export default function FormRegister(props) {
           history.push("/profile");
         })
         .catch((err) => {
-          console.log({ err });
+          setLoadingVisible(false);
           if (
             (err.request && err.request.status === 400) ||
             err.request.status === 401
@@ -91,6 +96,7 @@ export default function FormRegister(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+      <Loading visible={loadingVisible} />
       <Modal.Header>
         <Modal.Title>
           <ReactLogo className="icon" />

@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { ReactComponent as ReactLogo } from "../../assets/images/icon.svg";
+import { CircularProgressbar } from "react-circular-progressbar";
 import Tweet from "../../components/Tweet";
 import CardUser from "../../components/CardUser";
 import SidebarGlobalTweets from "../../components/SidebarGlobalTweets";
 import PhotoDefault from "../../assets/images/profile.png";
 import api from "../../service/api";
 
+import "react-circular-progressbar/dist/styles.css";
+
 import "./style.css";
 
-export default function Profile() {
+function Profile() {
   const [post, setPost] = useState("");
   const [tweets, setTweets] = useState([]);
   const [user, setUser] = useState({});
@@ -64,12 +67,24 @@ export default function Profile() {
                   setPost(post.target.value);
                 }}
                 value={post}
+                maxLength="120"
                 placeholder="O que está acontencedo?"
               ></textarea>
               <div className="actions">
-                <button type="submit" onClick={submitTweet}>
-                  Tweetar
-                </button>
+                <div className="action">
+                  <CircularProgressbar
+                    className="circle-max-length"
+                    value={post.length}
+                    minValue="1"
+                    maxValue="120"
+                    text={post.length}
+                  />
+                </div>
+                <div className="action">
+                  <button type="submit" onClick={submitTweet}>
+                    Tweetar
+                  </button>
+                </div>
               </div>
             </form>
           </div>
@@ -86,3 +101,5 @@ export default function Profile() {
     </div>
   );
 }
+
+export default memo(Profile);

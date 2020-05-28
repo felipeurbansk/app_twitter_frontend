@@ -2,7 +2,7 @@ import Ws from "@adonisjs/websocket-client";
 
 export class SocketConnection {
   connect() {
-    this.ws = Ws("wss://app-twitter-backend-adonisjs.herokuapp.com/").connect();
+    this.ws = Ws("ws://localhost:3333").connect();
 
     this.ws.on("open", (connect) => {
       console.log("[Service WSK] Conectado ao socket.io: ws://localhost:3333", {

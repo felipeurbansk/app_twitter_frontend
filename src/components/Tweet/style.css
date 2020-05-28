@@ -38,3 +38,7 @@
   line-height: 1.3125;
   word-wrap: break-word;
 }
+
+.tweet_post {
+  word-break: break-all;
+}

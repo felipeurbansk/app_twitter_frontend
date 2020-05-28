@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, memo } from "react";
+
 import api from "../../service/api";
 import socket from "../../service/socket";
 
@@ -9,7 +9,7 @@ import "./style.css";
 
 let subscription;
 
-export default function SidebarGlobalTweets() {
+function SidebarGlobalTweets() {
   const [tweetsGlobal, setTweetsGlobal] = useState([]);
 
   useEffect(() => {
@@ -17,6 +17,8 @@ export default function SidebarGlobalTweets() {
 
     socket.connect();
     subscription = socket.subscribe("room:newTweet", setTweets);
+
+    return () => subscription.close();
   }, []);
 
   async function getNewGlobalTweets() {
@@ -34,11 +36,17 @@ export default function SidebarGlobalTweets() {
   }
 
   return (
-    <div className="content-globals">
-      <Link onClick={() => console.log({ tweetsGlobal })}>Vaidar tweets</Link>
-      {tweetsGlobal.map((tweet) => (
-        <Tweet key={tweet.id} tweet={tweet} user={tweet.user} />
-      ))}
+    <div className="container-global">
+      <div className="header-section">
+        <span className="page-title">Tweets Globais</span>
+      </div>
+      <div className="content-globals">
+        {tweetsGlobal.map((tweet) => (
+          <Tweet key={tweet.id} tweet={tweet} user={tweet.user} />
+        ))}
+      </div>
     </div>
   );
 }
+
+export default memo(SidebarGlobalTweets);

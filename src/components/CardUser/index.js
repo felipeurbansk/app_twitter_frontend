@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import PhotoDefault from "../../assets/images/profile.png";
 
 import "./style.css";
 
-export default function CardUser({ user }) {
+function CardUser({ user }) {
   const history = useHistory();
 
   function hundleLogout() {
@@ -46,3 +46,5 @@ export default function CardUser({ user }) {
     </div>
   );
 }
+
+export default memo(CardUser);
