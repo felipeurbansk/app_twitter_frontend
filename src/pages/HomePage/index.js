@@ -1,17 +1,19 @@
 import React, { useState, useEffect, memo } from "react";
-import { ReactComponent as ReactLogo } from "../../assets/images/icon.svg";
+
 import { CircularProgressbar } from "react-circular-progressbar";
-import Tweet from "../../components/Tweet";
-import CardUser from "../../components/CardUser";
-import SidebarGlobalTweets from "../../components/SidebarGlobalTweets";
+import GlobalTweets from "../../components/GlobalTweets";
+import FollowPeople from "../../components/FollowPeople";
+import LayoutDefault from "../../components/LayoutDefault";
+
 import PhotoDefault from "../../assets/images/profile.png";
+
 import api from "../../service/api";
 
 import "react-circular-progressbar/dist/styles.css";
 
 import "./style.css";
 
-function Profile() {
+function HomePage() {
   const [post, setPost] = useState("");
   const [tweets, setTweets] = useState([]);
   const [user, setUser] = useState({});
@@ -43,14 +45,10 @@ function Profile() {
   }
 
   return (
-    <div className="content">
-      <section className="section-left sidebar">
-        <ReactLogo className="icon" />
-        <CardUser user={user} />
-      </section>
+    <LayoutDefault user={user}>
       <section className="section-middle middle">
         <div className="header-section">
-          <span className="page-title">Página inicial</span>
+          <span className="page-title">Timeline</span>
         </div>
         <div className="tweet">
           <div className="image-profile">
@@ -90,16 +88,14 @@ function Profile() {
           </div>
         </div>
         <div className="timeline">
-          {tweets.map((tweet) => (
-            <Tweet key={tweet.id} tweet={tweet} user={user} />
-          ))}
+          <GlobalTweets />
         </div>
       </section>
       <section className="section-rigth sidebar">
-        <SidebarGlobalTweets />
+        <FollowPeople />
       </section>
-    </div>
+    </LayoutDefault>
   );
 }
 
-export default memo(Profile);
+export default memo(HomePage);

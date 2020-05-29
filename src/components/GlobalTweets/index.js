@@ -9,7 +9,7 @@ import "./style.css";
 
 let subscription;
 
-function SidebarGlobalTweets() {
+function GlobalTweets({ title }) {
   const [tweetsGlobal, setTweetsGlobal] = useState([]);
 
   useEffect(() => {
@@ -17,6 +17,8 @@ function SidebarGlobalTweets() {
 
     socket.connect();
     subscription = socket.subscribe("room:newTweet", setTweets);
+
+    return () => subscription.close();
   }, []);
 
   async function getNewGlobalTweets() {
@@ -26,18 +28,18 @@ function SidebarGlobalTweets() {
   }
 
   function setTweets(tweet) {
-    try {
-      setTweetsGlobal((tweets) => [tweet, ...tweets]);
-    } catch (err) {
-      console.log({ err });
-    }
+    setTweetsGlobal((tweets) => [tweet, ...tweets]);
   }
 
   return (
     <div className="container-global">
-      <div className="header-section">
-        <span className="page-title">Tweets Globais</span>
-      </div>
+      {title === true ? (
+        <div className="header-section">
+          <span className="page-title">Tweets Globais</span>
+        </div>
+      ) : (
+        ""
+      )}
       <div className="content-globals">
         {tweetsGlobal.map((tweet) => (
           <Tweet key={tweet.id} tweet={tweet} user={tweet.user} />
@@ -47,4 +49,4 @@ function SidebarGlobalTweets() {
   );
 }
 
-export default memo(SidebarGlobalTweets);
+export default memo(GlobalTweets);

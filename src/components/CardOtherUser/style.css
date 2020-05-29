@@ -1,0 +1,30 @@
+.info-user {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding: 15px 0;
+  border-top: 1px solid var(--color-grayscale);
+}
+
+.info-user .infos {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.info-user span {
+  width: 100%;
+  line-height: 1.3125;
+}
+
+.user-name {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.user-username {
+  color: var(--color-grayscale);
+}

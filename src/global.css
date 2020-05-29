@@ -1,6 +1,8 @@
 :root {
   --background-dark: #15202b;
+  --background-dark-secondary: rgb(25, 39, 52);
   --border-dark: #253341;
+  --color-grayscale: #38444d;
 }
 
 body {
@@ -66,7 +68,8 @@ code {
   border: 1px solid #38444d;
 }
 
-.page-title {
+.page-title,
+.title {
   color: #fff;
   font-weight: bold;
   font-size: 17px;
@@ -76,12 +79,12 @@ code {
 .icon {
   filter: invert(1);
 }
-
+/*
 .title {
   font-size: 23px;
   padding-top: 5px;
   color: #fff;
-}
+} */
 
 .modal-title {
   display: flex;
@@ -200,4 +203,8 @@ input:-webkit-autofill:active {
 
 .circle-max-length .CircularProgressbar-trail {
   stroke: #fff !important;
+}
+
+.button-follow {
+  height: 50px;
 }

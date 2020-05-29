@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import Main from "./pages/Main";
-import Profile from "./pages/Profile";
+import HomePage from "./pages/HomePage";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -28,7 +28,7 @@ export default function Routes() {
     <Router>
       <Switch>
         <Route path="/" exact component={Main} />
-        <PrivateRoute path="/profile" exact component={Profile} />
+        <PrivateRoute path="/home" exact component={HomePage} />
       </Switch>
     </Router>
   );

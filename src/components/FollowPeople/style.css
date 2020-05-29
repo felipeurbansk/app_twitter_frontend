@@ -1,0 +1,10 @@
+.follow-peoples {
+  width: 95%;
+  padding: 0px 10px;
+  background-color: var(--background-dark-secondary);
+  border-radius: 14px;
+}
+
+.follow-peoples .header-section {
+  border: none;
+}
