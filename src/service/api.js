@@ -10,6 +10,7 @@ api.interceptors.request.use(async (config) => {
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
+    config.headers.Crossdomain = true;
   }
 
   return config;

@@ -34,9 +34,9 @@ function CardUser({ user }) {
             <Card.Text className="username"> {`@${user.username}`}</Card.Text>
           </Card.Title>
           <div className="actions-user">
-            <Link to="" className="btn btn-primary">
+            {/* <Link to="" className="btn btn-primary">
               Ver perfil
-            </Link>
+            </Link> */}
             <Link to="" className="logout" onClick={hundleLogout}>
               Sair
             </Link>

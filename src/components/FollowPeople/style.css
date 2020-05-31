@@ -8,3 +8,20 @@
 .follow-peoples .header-section {
   border: none;
 }
+
+.follow-peoples .body-section {
+  max-height: 77.2vh;
+  overflow-y: auto;
+}
+
+.follow-peoples .footer-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--border-dark);
+}
+
+.follow-peoples .footer-section .show-more {
+  color: #fff;
+}

@@ -35,7 +35,7 @@ export default function Index() {
 
               await localStorage.setItem("TOKEN_KEY", token);
 
-              history.push("/profile");
+              history.push("/home");
             } catch (err) {
               console.log({ err });
             }

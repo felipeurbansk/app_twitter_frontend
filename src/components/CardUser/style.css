@@ -32,7 +32,7 @@
 
 .card-user .actions-user {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
 }
 
 .card-user .actions-user .logout {

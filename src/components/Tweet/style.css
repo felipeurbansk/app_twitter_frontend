@@ -42,3 +42,26 @@
 .tweet_post {
   word-break: break-all;
 }
+
+.content-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.content-actions div {
+  width: 100%;
+}
+
+.icon-actions {
+  color: #888;
+  font-size: 16px;
+}
+
+.count-actions {
+  color: #888;
+  margin-left: 5px;
+  font-size: 13px;
+}

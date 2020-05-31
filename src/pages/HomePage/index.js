@@ -87,7 +87,7 @@ function HomePage() {
             </form>
           </div>
         </div>
-        <div className="timeline">
+        <div className="timeline scrollbar scrollbar-style-2">
           <GlobalTweets />
         </div>
       </section>

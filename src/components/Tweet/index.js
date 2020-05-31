@@ -1,4 +1,6 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
+import { FiMessageSquare, FiUpload } from "react-icons/fi";
+import { FaRetweet, FaRegHeart } from "react-icons/fa";
 import PhotoDefault from "../../assets/images/profile.png";
 
 import Moment from "react-moment";
@@ -6,6 +8,9 @@ import Moment from "react-moment";
 import "./style.css";
 
 function Tweet({ tweet, user }) {
+  useEffect(() => {
+    console.log(tweet);
+  });
   return (
     <div className="container-tweet">
       <div className="image-user">
@@ -33,7 +38,23 @@ function Tweet({ tweet, user }) {
         <div className="body-tweet">
           <p className="tweet_post">{tweet.post}</p>
         </div>
-        <div className="content-actions"></div>
+        <div className="content-actions">
+          <div className="action-messages">
+            <FiMessageSquare className="icon-actions" />
+            <span className="count-actions">0</span>
+          </div>
+          <div className="action-retweet">
+            <FaRetweet className="icon-actions" />
+            <span className="count-actions">0</span>
+          </div>
+          <div className="action-like">
+            <FaRegHeart className="icon-actions" />
+            <span className="count-actions">{tweet.likes}</span>
+          </div>
+          <div className="action-options">
+            <FiUpload className="icon-actions" />
+          </div>
+        </div>
       </div>
     </div>
   );
