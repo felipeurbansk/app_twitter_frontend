@@ -1,16 +1,21 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FiMessageSquare, FiUpload } from "react-icons/fi";
 import { FaRetweet, FaRegHeart } from "react-icons/fa";
 import PhotoDefault from "../../assets/images/profile.png";
+import ViewComments from "../ViewComments";
 
 import Moment from "react-moment";
 
 import "./style.css";
 
 function Tweet({ tweet, user }) {
-  useEffect(() => {
-    console.log(tweet);
-  });
+  const [showModalComments, setShowModalComments] = useState(false);
+
+  function modalViewComments() {
+    setShowModalComments(true);
+  }
+
   return (
     <div className="container-tweet">
       <div className="image-user">
@@ -40,7 +45,9 @@ function Tweet({ tweet, user }) {
         </div>
         <div className="content-actions">
           <div className="action-messages">
-            <FiMessageSquare className="icon-actions" />
+            <Link onClick={modalViewComments}>
+              <FiMessageSquare className="icon-actions" />
+            </Link>
             <span className="count-actions">0</span>
           </div>
           <div className="action-retweet">
@@ -56,6 +63,17 @@ function Tweet({ tweet, user }) {
           </div>
         </div>
       </div>
+      {showModalComments ? (
+        <ViewComments
+          show={showModalComments}
+          tweet_id={tweet.id}
+          onHide={() => {
+            setShowModalComments(false);
+          }}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }

@@ -18,7 +18,13 @@ function GlobalTweets({ title }) {
     socket.connect();
     subscription = socket.subscribe("room:newTweet", setTweets);
 
-    return () => subscription.close();
+    return () => {
+      try {
+        subscription.close();
+      } catch (err) {
+        console.log({ err });
+      }
+    };
   }, []);
 
   async function getNewGlobalTweets() {

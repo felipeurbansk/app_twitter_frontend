@@ -1,0 +1,43 @@
+.modal-body {
+  border-top: 1px solid var(--color-grayscale);
+}
+
+.modal-body .container-tweet {
+  border: none;
+}
+
+.modal-body .container-tweet .content-tweet {
+  width: 85%;
+}
+
+.container-response .image-user img {
+  width: 50px;
+}
+
+.container-response {
+  padding: 20px;
+}
+
+.container-response {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.create-response {
+  width: 100%;
+}
+
+.create-response .actions {
+  display: flex;
+  justify-content: end;
+}
+
+.all-comments {
+  border-top: 1px solid var(--color-grayscale);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0;
+}

@@ -40,7 +40,7 @@
 
 .content-login {
   display: flex;
-  width: 30%;
+  width: 45%;
   height: 90vh;
   justify-content: center;
   align-items: center;
@@ -49,4 +49,31 @@
 
 .content-login .title {
   margin: 20px 0;
+}
+
+@media only screen and (max-width: 780px) {
+  .content-login {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .content-login {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .group-links {
+    margin-top: 50px;
+    flex-direction: column;
+  }
+
+  .group-links a {
+    padding: 10px 0;
+  }
+
+  .group-links .separator {
+    display: none;
+  }
 }
