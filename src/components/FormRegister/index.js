@@ -49,7 +49,7 @@ export default function FormRegister(props) {
           if (!success.data && !success.data.token) return false;
 
           localStorage.setItem("TOKEN_KEY", success.data.token);
-          history.push("/profile");
+          history.push("/home");
         })
         .catch((err) => {
           setLoadingVisible(false);

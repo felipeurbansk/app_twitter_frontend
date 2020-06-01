@@ -12,6 +12,7 @@
 
 .card-user .card {
   color: #fff;
+  width: 100%;
 }
 
 .card-user .card .username {
