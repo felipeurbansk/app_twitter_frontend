@@ -1,4 +1,4 @@
-![GitHub](https://img.shields.io/github/license/felipeurbansk/app_twitter_frontend?color=7bf402&style=flat-square)
+# Twitter Frontend
 
 Objetivo desse pequeno projeto é simular algumas funcionalidades do [Twitter Oficial](https://twitter.com).
 
