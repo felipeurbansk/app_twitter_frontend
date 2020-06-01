@@ -7,3 +7,16 @@ O backend desse projeto está disponível em outro repositório, você pode clic
 
 # Demontração
 ![](https://github.com/felipeurbansk/app_twitter_frontend/blob/master/demo/twitter.gif)
+
+# Executar
+Para que a aplicação funcione corretamente, também é necessário executar o [backend](https://github.com/felipeurbansk/app_twitter_backend).
+
+
+Instale as dependencias
+
+`npm install`
+
+E execute o projeto
+
+`npm start`
+
