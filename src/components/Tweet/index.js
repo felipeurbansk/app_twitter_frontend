@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from "react";
+import React, { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiMessageSquare, FiUpload } from "react-icons/fi";
 import { FaRetweet, FaRegHeart } from "react-icons/fa";
@@ -45,7 +45,7 @@ function Tweet({ tweet, user }) {
         </div>
         <div className="content-actions">
           <div className="action-messages">
-            <Link onClick={modalViewComments}>
+            <Link to="#" onClick={modalViewComments}>
               <FiMessageSquare className="icon-actions" />
             </Link>
             <span className="count-actions">0</span>

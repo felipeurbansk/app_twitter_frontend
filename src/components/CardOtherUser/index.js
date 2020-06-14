@@ -14,7 +14,9 @@ export default function CardOtherUser({ user }) {
         <span className="user-name">{user.name}</span>
         <span className="user-username">{`@${user.username}`}</span>
       </div>
-      <Link className="btn btn-outline-primary btn-sm">Seguir</Link>
+      <Link to="#" className="btn btn-outline-primary btn-sm">
+        Seguir
+      </Link>
     </div>
   );
 }

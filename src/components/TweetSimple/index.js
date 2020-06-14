@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import PhotoDefault from "../../assets/images/profile.png";
 
@@ -6,12 +6,16 @@ import Moment from "react-moment";
 
 import "./style.css";
 
-export default function TweetSimple({ tweet, user }) {
+export default function TweetSimple({ tweet }) {
+  useEffect(() => {
+    console.log({ tweet });
+  }, []);
+
   return (
     <div className="container-tweet">
       <div className="image-user">
-        {user && user.photo ? (
-          <img src={user.photo} alt="Foto do usuário" />
+        {tweet && tweet.photo ? (
+          <img src={tweet.photo} alt="Foto do usuário" />
         ) : (
           <img src={PhotoDefault} alt="Foto do usuário" />
         )}
@@ -19,10 +23,12 @@ export default function TweetSimple({ tweet, user }) {
       <div className="content-tweet">
         <div className="header-tweet">
           <div className="user-info">
-            <span className="name">{user && user.name ? user.name : ""}</span>
+            <span className="name">
+              {tweet && tweet.name ? tweet.name : ""}
+            </span>
             <div className="last-info">
               <span className="username">{`@${
-                user && user.username ? user.username : ""
+                tweet && tweet.username ? tweet.username : ""
               }`}</span>
               <span className="separator">.</span>
               <Moment fromNow ago>

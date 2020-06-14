@@ -29,6 +29,7 @@ function GlobalTweets({ title }) {
 
   async function getNewGlobalTweets() {
     await api.get("/global").then((success) => {
+      console.log(success.data);
       setTweetsGlobal(success.data);
     });
   }
@@ -47,9 +48,10 @@ function GlobalTweets({ title }) {
         ""
       )}
       <div className="content-globals">
-        {tweetsGlobal.map((tweet) => (
-          <Tweet key={tweet.id} tweet={tweet} user={tweet.user} />
-        ))}
+        {tweetsGlobal &&
+          tweetsGlobal.map((tweet) => (
+            <Tweet key={tweet.id} tweet={tweet} user={tweet.user} />
+          ))}
       </div>
     </div>
   );

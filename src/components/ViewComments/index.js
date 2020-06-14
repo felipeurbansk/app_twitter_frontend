@@ -23,7 +23,6 @@ function ViewComments(props) {
     await api
       .get(`/getAllComments/${props.tweet_id}`)
       .then((success) => {
-        console.log({ success });
         console.log(success.data);
         setAllComments(success.data.comments);
         setSingleTweet(success.data);
@@ -141,11 +140,7 @@ function ViewComments(props) {
         <div className="all-comments">
           {allComments && allComments.length ? (
             allComments.map((comment) => (
-              <TweetSimple
-                key={comment.id}
-                tweet={comment}
-                user={comment.user}
-              />
+              <TweetSimple key={comment.id} tweet={comment} />
             ))
           ) : (
             <span className="text-info">Nenhuma resposta para esse tweet</span>

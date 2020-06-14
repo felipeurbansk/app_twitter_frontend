@@ -19,6 +19,7 @@ function FollowPeople() {
     await api
       .get(`/getUsers/${page}`)
       .then((success) => {
+        console.log({ success });
         setPage(page + 1);
         setUsers([...users, ...success.data]);
       })
@@ -38,7 +39,7 @@ function FollowPeople() {
         ))}
       </div>
       <div className="footer-section">
-        <Link onClick={getUsersApi} className="show-more">
+        <Link to="#" onClick={getUsersApi} className="show-more">
           Ver mais
         </Link>
       </div>
