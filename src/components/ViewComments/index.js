@@ -23,7 +23,6 @@ function ViewComments(props) {
     await api
       .get(`/getAllComments/${props.tweet_id}`)
       .then((success) => {
-        console.log(success.data);
         setAllComments(success.data.comments);
         setSingleTweet(success.data);
       })

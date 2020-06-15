@@ -29,7 +29,6 @@ function GlobalTweets({ title }) {
 
   async function getNewGlobalTweets() {
     await api.get("/global").then((success) => {
-      console.log(success.data);
       setTweetsGlobal(success.data);
     });
   }

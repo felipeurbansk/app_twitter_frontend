@@ -22,7 +22,6 @@ function HomePage() {
     api
       .get("/tweets")
       .then((success) => {
-        console.log(success);
         setTweets(success.data.tweets);
         setUser(success.data.user);
       })

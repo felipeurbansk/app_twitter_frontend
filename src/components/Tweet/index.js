@@ -5,6 +5,8 @@ import { FaRetweet, FaRegHeart } from "react-icons/fa";
 import PhotoDefault from "../../assets/images/profile.png";
 import ViewComments from "../ViewComments";
 
+import api from "../../service/api";
+
 import Moment from "react-moment";
 
 import "./style.css";
@@ -14,6 +16,21 @@ function Tweet({ tweet, user }) {
 
   function modalViewComments() {
     setShowModalComments(true);
+  }
+
+  async function likeTweet(id) {
+    try {
+      const like = await api
+        .put(`like/${id}`)
+        .then((success) => {
+          console.log({ success });
+        })
+        .catch((err) => {
+          console.log({ err });
+        });
+    } catch (err) {
+      console.log({ err });
+    }
   }
 
   return (
@@ -55,7 +72,9 @@ function Tweet({ tweet, user }) {
             <span className="count-actions">0</span>
           </div>
           <div className="action-like">
-            <FaRegHeart className="icon-actions" />
+            <Link to="#" onClick={() => likeTweet(tweet.id)}>
+              <FaRegHeart className="icon-actions" />
+            </Link>
             <span className="count-actions">{tweet.likes}</span>
           </div>
           <div className="action-options">

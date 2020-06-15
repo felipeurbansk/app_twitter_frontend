@@ -19,7 +19,6 @@ function FollowPeople() {
     await api
       .get(`/getUsers/${page}`)
       .then((success) => {
-        console.log({ success });
         setPage(page + 1);
         setUsers([...users, ...success.data]);
       })
