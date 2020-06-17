@@ -13,6 +13,7 @@ import "./style.css";
 
 function Tweet({ tweet, user }) {
   const [showModalComments, setShowModalComments] = useState(false);
+  const [tweetLike, setTweetLike] = useState(false);
 
   function modalViewComments() {
     setShowModalComments(true);
@@ -23,7 +24,7 @@ function Tweet({ tweet, user }) {
       const like = await api
         .put(`like/${id}`)
         .then((success) => {
-          console.log({ success });
+          setTweetLike(success.data.like);
         })
         .catch((err) => {
           console.log({ err });
@@ -73,7 +74,7 @@ function Tweet({ tweet, user }) {
           </div>
           <div className="action-like">
             <Link to="#" onClick={() => likeTweet(tweet.id)}>
-              <FaRegHeart className="icon-actions" />
+              <FaRegHeart className={`icon-actions ${tweetLike && "active"}`} />
             </Link>
             <span className="count-actions">{tweet.likes}</span>
           </div>
