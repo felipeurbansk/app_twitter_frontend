@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import PhotoDefault from "../../assets/images/profile.png";
 
@@ -7,10 +7,6 @@ import Moment from "react-moment";
 import "./style.css";
 
 export default function TweetSimple({ tweet }) {
-  useEffect(() => {
-    console.log({ tweet });
-  }, []);
-
   return (
     <div className="container-tweet">
       <div className="image-user">

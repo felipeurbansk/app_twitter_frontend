@@ -12,7 +12,7 @@ function FollowPeople() {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    getUsersApi();
+    getUsersApi(); // eslint-disable-next-line
   }, []);
 
   async function getUsersApi() {

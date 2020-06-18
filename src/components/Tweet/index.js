@@ -21,7 +21,7 @@ function Tweet({ tweet, user }) {
 
   async function likeTweet(id) {
     try {
-      const like = await api
+      await api
         .put(`like/${id}`)
         .then((success) => {
           setTweetLike(success.data.like);

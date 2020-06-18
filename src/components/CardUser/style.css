@@ -34,7 +34,6 @@
 
 .card-user .actions-user {
   display: flex;
-  justify-content: end;
 }
 
 .card-user .actions-user .logout {

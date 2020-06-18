@@ -10,7 +10,6 @@
 .info-user .infos {
   width: 100%;
   display: flex;
-  justify-content: start;
   flex-direction: column;
   padding: 5px;
 }

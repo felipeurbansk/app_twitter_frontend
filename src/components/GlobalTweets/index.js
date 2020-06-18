@@ -33,18 +33,16 @@ function GlobalTweets({ title }) {
     });
   }
 
-  function setTweets(tweet) {
-    setTweetsGlobal((tweets) => [tweet, ...tweets]);
+  async function setTweets(tweet) {
+    await setTweetsGlobal((tweets) => [tweet, ...tweets]);
   }
 
   return (
     <div className="container-global">
-      {title === true ? (
+      {title === true && (
         <div className="header-section">
           <span className="page-title">Tweets Globais</span>
         </div>
-      ) : (
-        ""
       )}
       <div className="content-globals">
         {tweetsGlobal &&

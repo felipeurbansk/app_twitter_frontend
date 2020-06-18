@@ -16,7 +16,7 @@ function ViewComments(props) {
   const [comment, setComment] = useState("");
 
   useEffect(() => {
-    getCommentsByTweetId();
+    getCommentsByTweetId(); // eslint-disable-next-line
   }, []);
 
   async function getCommentsByTweetId() {

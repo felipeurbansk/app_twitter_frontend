@@ -30,7 +30,6 @@
 
 .create-response .actions {
   display: flex;
-  justify-content: end;
 }
 
 .all-comments {
