@@ -11,7 +11,7 @@ import Moment from "react-moment";
 
 import "./style.css";
 
-function Tweet({ tweet, user }) {
+function Tweet({ tweet, user, interactions }) {
   const [showModalComments, setShowModalComments] = useState(false);
   const [tweetLike, setTweetLike] = useState(false);
 
@@ -66,7 +66,9 @@ function Tweet({ tweet, user }) {
             <Link to="#" onClick={modalViewComments}>
               <FiMessageSquare className="icon-actions" />
             </Link>
-            <span className="count-actions">0</span>
+            <span className="count-actions">
+              {interactions.comments ? interactions.comments.length : 0}
+            </span>
           </div>
           <div className="action-retweet">
             <FaRetweet className="icon-actions" />
@@ -76,7 +78,9 @@ function Tweet({ tweet, user }) {
             <Link to="#" onClick={() => likeTweet(tweet.id)}>
               <FaRegHeart className={`icon-actions ${tweetLike && "active"}`} />
             </Link>
-            <span className="count-actions">{tweet.likes}</span>
+            <span className="count-actions">
+              {interactions ? interactions.length : 0}
+            </span>
           </div>
           <div className="action-options">
             <FiUpload className="icon-actions" />
